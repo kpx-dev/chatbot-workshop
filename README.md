@@ -1,41 +1,30 @@
 # Chatbot Workshop
 
+This repo contains the lab instructions for setting up AWS Chatbot. The labs are available here: https://chatbotworkshop.com/
+
 ### Setup:
 
 #### Install Hugo:
-On a mac:
-
-`brew install hugo`
-
-On Linux:
-  - Download from the releases page: https://github.com/gohugoio/hugo/releases/tag/v0.46
-  - Extract and save the executable to `/usr/local/bin`
-
-On Windows:
-TODO
-
-#### Clone the theme submodule:
-Clone repo
-
-`cd chatbot-workshop`
-
-`git submodule init` ;
-`git submodule update`
-
-#### Install Node.js and npm:
-You can follow instructions from npm website: https://www.npmjs.com/get-npm
+```shell
+brew install hugo
+```
 
 #### Install node packages:
-`npm install`
+```shell
+npm install
+```
 
 #### Run Hugo locally:
-`npm run server`
-or
-`npm run drafts` to see stubbed in draft pages.
-
-`npm run build` will build your content locally and output to `./public/`
-
-`npm run test` will test the built content for bad links
-
-#### View Hugo locally:
+```shell
+npm run server
+```
 Visit http://localhost:8080/ to see the site.
+
+#### Testing
+```shell
+npm run test
+```
+
+#### Deploy
+
+Static pages will be hosted on Github Pages. Github Actions will trigger the build.
