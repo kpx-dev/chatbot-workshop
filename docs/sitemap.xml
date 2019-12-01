@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -7,63 +7,41 @@
   </url>
   
   <url>
-    <loc>/container/</loc>
+    <loc>/chatbot/</loc>
   </url>
   
   <url>
-    <loc>/container/clone-container-repo/</loc>
+    <loc>/chatbot/clone-container-repo/</loc>
   </url>
   
   <url>
-    <loc>/serverless/clone-lambda-repo/</loc>
+    <loc>/chatbot/docker-build-run/</loc>
   </url>
   
   <url>
-    <loc>/container/docker-build-run/</loc>
+    <loc>/chatbot/view-page/</loc>
   </url>
   
   <url>
-    <loc>/serverless/</loc>
+    <loc>/chatbot/ecr/</loc>
   </url>
   
   <url>
-    <loc>/serverless/sam/</loc>
+    <loc>/chatbot/ecs/</loc>
   </url>
   
   <url>
-    <loc>/container/view-page/</loc>
-  </url>
-  
-  <url>
-    <loc>/container/ecr/</loc>
-  </url>
-  
-  <url>
-    <loc>/container/ecs/</loc>
-  </url>
-  
-  <url>
-    <loc>/container/view-ecs/</loc>
+    <loc>/chatbot/view-ecs/</loc>
   </url>
   
   <url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-  </url>
-  
-  <url>
-    <loc>/example_cf_templates/</loc>
-  </url>
-  
-  <url>
-    <loc>/more_resources/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>
