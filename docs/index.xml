@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lab 1: Container on Chatbot Workshop</title>
-    <link>/container/</link>
-    <description>Recent content in Lab 1: Container on Chatbot Workshop</description>
+    <title>Serverless Workshop on Chatbot Workshop</title>
+    <link>/</link>
+    <description>Recent content in Serverless Workshop on Chatbot Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/container/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,6 +25,19 @@ admin:~/environment $ git clone https://github.</description>
     </item>
     
     <item>
+      <title>Clone Lambda repo</title>
+      <link>/serverless/clone-lambda-repo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/serverless/clone-lambda-repo/</guid>
+      <description>  Login to your AWS Account, make sure you are in the North Virginia (us-east-1) region
+ Click on Services Drop down, type Cloud9.
+ There should be an existing environment created for you called lab. Click on Open IDE.
+ Once launched, go to a Terminal tab:
+  Clone repo and cd into it git clone https://github.com/kienpham2000/lambda-example.git cd lambda-example  </description>
+    </item>
+    
+    <item>
       <title>Docker build &amp; run</title>
       <link>/container/docker-build-run/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -32,6 +45,18 @@ admin:~/environment $ git clone https://github.</description>
       <guid>/container/docker-build-run/</guid>
       <description>Build the Docker image docker build -t web .  Output
 admin:~/environment/docker-example (master) $ docker build -t web . Sending build context to Docker daemon 65.54kB Step 1/2 : FROM nginx:alpine ---&amp;gt; b6753551581f Step 2/2 : COPY index.html /usr/share/nginx/html ---&amp;gt; Using cache ---&amp;gt; d44b90c272d6 Successfully built d44b90c272d6 Successfully tagged web:latest  Run the container docker run -p 80:80 --name web web  Verify the container is running Create a new Terminal tab</description>
+    </item>
+    
+    <item>
+      <title>Package &amp; Deploy Lambda using SAM</title>
+      <link>/serverless/sam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/serverless/sam/</guid>
+      <description>Create the S3 repo to store SAM artifact Since the S3 repo name must be unique globally, please postfix with your username
+aws s3api create-bucket --bucket serverless-lab-[your-username]  Upgrade SAM CLI to latest version Run the command below and press ENTER to continue. Once done, please open New Terminal
+./install-sam.sh  Package the template Don&amp;rsquo;t forget to replace serverless-lab-[your-username] with your actual S3 bucket name.
+sam package --s3-bucket serverless-lab-[your-username] --s3-prefix lab --output-template-file template_packaged.</description>
     </item>
     
     <item>
@@ -69,6 +94,34 @@ Stop the container Try stopping the container and refresh the last page, it shou
       
       <guid>/container/view-ecs/</guid>
       <description> Click on Tasks tab from ECS default cluster, you&amp;rsquo;ll see one container running on Fargate. If you go back to EC2 and check, there&amp;rsquo;s no new EC2 instance launched!  Click into the link under Task column Under Network, you&amp;rsquo;ll see the Public IP. Open this IP in a new browser tab, you will see the content of your container running on Fargate serverlessly!   </description>
+    </item>
+    
+    <item>
+      <title>Credits</title>
+      <link>/authors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/</guid>
+      <description> Thanks to our wonderful contributors  for making Open Source a better place! </description>
+    </item>
+    
+    <item>
+      <title>Example of using CloudFormation Templates</title>
+      <link>/example_cf_templates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/example_cf_templates/</guid>
+      <description>Click below to add a CloudFormation Stack    Use these templates:       Template 1 example &amp;lt;a     href=&amp;ldquo;https://console.aws.amazon.com/cloudformation/home?#/stacks/create/review?stackName=&amp;amp;templateURL=https://s3.amazonaws.com/chatbotworkshop.com/templates/master/example1.yml&amp;quot; target=&amp;rdquo;_blank&amp;rdquo; class=&amp;ldquo;btn btn-default&amp;rdquo;&amp;gt;  Launch  |  Download  | | Template 2 example |  Launch  |  Download  | | Template 3 example |  Launch  |  Download  |</description>
+    </item>
+    
+    <item>
+      <title>More Resources</title>
+      <link>/more_resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/more_resources/</guid>
+      <description>Discover more AWS resources for building and running your application on AWS:
+More Workshops  Amazon ECS Workshop - Learn how to use Stelligent Mu to deploy a microservice architecture that runs in AWS Fargate Amazon Lightsail Workshop - If you are getting started with the cloud and looking for a way to run an extremely low cost environment Lightsail is perfect. Learn how to deploy to Amazon Lightsail with this workshop.</description>
     </item>
     
   </channel>
