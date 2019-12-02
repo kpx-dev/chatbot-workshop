@@ -4,12 +4,13 @@ chapter: true
 weight: 1
 ---
 
-<div style="text-align: center"><h2>DOP324-R - Slack ChatOps for AWS</h2></div>
+<div style="text-align: center"><h2>AWS Chatbot Workshop</h2></div>
 
-<!-- ![EKS](images/welcome.png) -->
-<!-- : Setting up AWS Chatbot -->
-In this session, we show you how to set up ChatOps for your team's Slack channel with AWS Chatbot.
+![Slack](images/welcome.png)
+In this workshop, you'll learn how to get started with ChatOps by integrating Slack with AWS Chatbot. You'll learn how to set up AWS Chatbot, choose which notifications are relevant for you and your teams, and define channel-specific permission controls.
 
-AWS Chatbot is an interactive agent that makes it easy to monitor and interact with AWS resources in your Slack channels.
+{{% notice tip %}}
+We'll use **us-east-1** (North Virginia) region for all labs.
+{{% /notice %}}
 
-You learn how to set up AWS Chatbot, choose which notifications are relevant for you and your teams, and define channel-specific permission controls.
+**[Start Workshop](slack/)**

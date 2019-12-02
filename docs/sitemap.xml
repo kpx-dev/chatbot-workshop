@@ -7,31 +7,31 @@
   </url>
   
   <url>
-    <loc>/chatbot/</loc>
+    <loc>/slack/</loc>
   </url>
   
   <url>
-    <loc>/chatbot/clone-container-repo/</loc>
+    <loc>/slack/clone-container-repo/</loc>
   </url>
   
   <url>
-    <loc>/chatbot/docker-build-run/</loc>
+    <loc>/slack/docker-build-run/</loc>
   </url>
   
   <url>
-    <loc>/chatbot/view-page/</loc>
+    <loc>/slack/view-page/</loc>
   </url>
   
   <url>
-    <loc>/chatbot/ecr/</loc>
+    <loc>/slack/ecr/</loc>
   </url>
   
   <url>
-    <loc>/chatbot/ecs/</loc>
+    <loc>/slack/ecs/</loc>
   </url>
   
   <url>
-    <loc>/chatbot/view-ecs/</loc>
+    <loc>/slack/view-ecs/</loc>
   </url>
   
   <url>

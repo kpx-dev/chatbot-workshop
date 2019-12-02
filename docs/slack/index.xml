@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Chatbot Workshop</title>
-    <link>/</link>
-    <description>Recent content on Chatbot Workshop</description>
+    <title>AWS Chatbot &amp; Slack Integration on Chatbot Workshop</title>
+    <link>/slack/</link>
+    <description>Recent content in AWS Chatbot &amp; Slack Integration on Chatbot Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/slack/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
