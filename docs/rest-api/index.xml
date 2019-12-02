@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CloudFormation &amp; CloudWatch integration on Chatbot Workshop</title>
+    <link>/rest-api/</link>
+    <description>Recent content in CloudFormation &amp; CloudWatch integration on Chatbot Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/rest-api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Package &amp; Deploy Lambda using SAM</title>
+      <link>/rest-api/configure-aws-chatbot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/configure-aws-chatbot/</guid>
+      <description>Go back to Cloud9 service.
+ Create the S3 repo to store SAM artifact. Since the S3 repo name must be globally unique, please postfix with your username
+aws s3api create-bucket --bucket chatbot-workshop-[your-username]  Make sure you are in the rest-api directory
+cd ~/environment/lambda-example/rest-api/  Package the template. Don&amp;rsquo;t forget to replace chatbot-workshop-[your-username] with your actual S3 bucket name.
+sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]  Deploy Lambda using SAM.</description>
+    </item>
+    
+    <item>
+      <title>Walkthrough Together</title>
+      <link>/rest-api/walkhthrough/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/walkhthrough/</guid>
+      <description> Let the instructor know when you are here. We&amp;rsquo;ll work together on rest of the workshop. </description>
+    </item>
+    
+  </channel>
+</rss>

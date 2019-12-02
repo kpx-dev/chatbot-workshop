@@ -9,7 +9,7 @@ We'll use **us-east-1** (North Virginia) region for all labs.
 {{% /notice %}}
 
 # Workshop Overview
-![Architecture](../images/arch.png)
+![Architecture](/images/arch.png)
 
 1. Setup development environment using Cloud9.
 1. Create Slack account and link with AWS Chatbot

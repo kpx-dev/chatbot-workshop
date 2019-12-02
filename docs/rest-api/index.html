@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
 
-    <title>Tags :: Chatbot Workshop</title>
+    <title>CloudFormation &amp; CloudWatch integration :: Chatbot Workshop</title>
 
     
     <link href="../css/nucleus.css?1575281077" rel="stylesheet">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/rest-api/">
     <nav id="sidebar" class="">
 
   
@@ -180,8 +180,8 @@
 
 
 <li data-nav-id="/rest-api/" title="CloudFormation &amp; CloudWatch integration" class="dd-item
-        
-        
+        parent
+        active
         
         ">
   <a href="../rest-api/">
@@ -277,6 +277,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/rest-api/_index.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -285,50 +296,58 @@
                         </a>
                     </span>
                   
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
                   <span class="links">
                     
           
           
-            Tags
+            
+            
+          
+          
+            <a href='../'>Chatbot Workshop</a> > CloudFormation & CloudWatch integration
+          
+         
           
            
                   </span>
                 </div>
-                
-                    <div class="progress">
-    <div class="wrapper">
-
-    </div>
-</div>
-
                 
               </div>
             </div>
             
 
         
+          <div id="chapter">
+        
         <div id="body-inner">
-          
-            <h1>Tags</h1>
           
 
         
 
 
 
-
-
-<ul>
 	
-</ul>
+
+<h1 id="deploy-a-sample-rest-api">Deploy a sample REST API</h1>
+
+<ol>
+<li>Create a Lambda function</li>
+<li>Create an API Gateway</li>
+<li>Package and Deploy the above resource using SAM template</li>
+<li>Update the CloudFormation template to send Notification to Slack</li>
+<li>Create CloudWatch Alarm to send alert to Slack</li>
+</ol>
+
+
+
 
 
 <footer class=" footline" >
 	
 </footer>
 
+        
+            </div> 
         
         </div>
         
@@ -427,6 +446,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -434,6 +454,25 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -451,22 +490,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -477,8 +500,10 @@
 
 
         
+            <a class="nav nav-prev" href="../slack/configure-aws-chatbot/" title="Configure AWS Chatbot"> <i class="fas fa-chevron-left"></i></a>
         
-            <a class="nav nav-next" href="../slack/" title="AWS Chatbot &amp; Slack Integration" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+        
+            <a class="nav nav-next" href="../rest-api/configure-aws-chatbot/" title="Package &amp; Deploy Lambda using SAM" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 

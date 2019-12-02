@@ -13,4 +13,4 @@ In this workshop, you'll learn how to get started with ChatOps by integrating Sl
 We'll use **us-east-1** (North Virginia) region for all labs.
 {{% /notice %}}
 
-**[Start Workshop](slack/)**
+**[Start Workshop](/slack)**
