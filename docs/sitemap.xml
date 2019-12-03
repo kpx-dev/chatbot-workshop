@@ -31,11 +31,11 @@
   </url>
   
   <url>
-    <loc>/rest-api/create-cw-alarm/</loc>
+    <loc>/rest-api/configure-aws-chatbot/</loc>
   </url>
   
   <url>
-    <loc>/rest-api/configure-aws-chatbot/</loc>
+    <loc>/rest-api/create-cw-alarm/</loc>
   </url>
   
   <url>

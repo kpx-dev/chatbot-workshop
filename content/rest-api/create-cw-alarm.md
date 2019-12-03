@@ -1,7 +1,7 @@
 ---
 title: "Create CloudWatch Alarm"
 chapter: false
-weight: 22
+weight: 23
 ---
 
 1. Go to **CloudWatch** service. Click on **Alarms** on the left hand side. Click on **Create alarm** button.

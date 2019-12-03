@@ -60,16 +60,6 @@
     </item>
     
     <item>
-      <title>Create CloudWatch Alarm</title>
-      <link>/rest-api/create-cw-alarm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/rest-api/create-cw-alarm/</guid>
-      <description>Go to CloudWatch service. Click on Alarms on the left hand side. Click on Create alarm button.
- Click Select Metric button. Look for Lambda and click on it. Clik on By Function Name. Select the one starts with prefix chatbot-workshop- and the Metric Name is Errors. Then click Select metric.  Update the Metric panne to set Statistic: Sum, Period: 1 minute  Under the Conditions pane, update the value for the threshold value to 1 and click Next.</description>
-    </item>
-    
-    <item>
       <title>Package &amp; Deploy Lambda using SAM</title>
       <link>/rest-api/configure-aws-chatbot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -80,6 +70,16 @@
 aws s3api create-bucket --bucket chatbot-workshop-[your-username]  Make sure you are in the rest-api directory
 cd ~/environment/lambda-example/rest-api/  Package the template. Don&amp;rsquo;t forget to replace chatbot-workshop-[your-username] with your actual S3 bucket name.
 sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]  Deploy Lambda using SAM.</description>
+    </item>
+    
+    <item>
+      <title>Create CloudWatch Alarm</title>
+      <link>/rest-api/create-cw-alarm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/create-cw-alarm/</guid>
+      <description>Go to CloudWatch service. Click on Alarms on the left hand side. Click on Create alarm button.
+ Click Select Metric button. Look for Lambda and click on it. Clik on By Function Name. Select the one starts with prefix chatbot-workshop- and the Metric Name is Errors. Then click Select metric.  Update the Metric panne to set Statistic: Sum, Period: 1 minute  Under the Conditions pane, update the value for the threshold value to 1 and click Next.</description>
     </item>
     
     <item>
