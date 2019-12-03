@@ -27,11 +27,19 @@
   </url>
   
   <url>
+    <loc>/rest-api/cloudformation-notification/</loc>
+  </url>
+  
+  <url>
+    <loc>/rest-api/create-cw-alarm/</loc>
+  </url>
+  
+  <url>
     <loc>/rest-api/configure-aws-chatbot/</loc>
   </url>
   
   <url>
-    <loc>/rest-api/walkhthrough/</loc>
+    <loc>/rest-api/trigger-cw-alarm/</loc>
   </url>
   
   <url>

@@ -12,7 +12,7 @@ weight: 16
 1. Once Logged into Slack, click on **Allow** AWS Chatbot to access your Slack workspace
 ![Slack Permission](/images/slack-perm.png)
 
-1. Go to **Slack**, create 2 public channels: **cloudformation-alert**, **cloudwatch-alarm**.
+1. Go to **Slack**, create 2 public channels: **cloudformation-alert**, **cloudwatch-alert**.
 ![Create Slack Channel](/images/create-slack-channel.png)
 
 1. Go back to AWS Console. Click on Refresh icon, you should now see 2 new Slack channels. Channel type: **Public**.
@@ -24,4 +24,4 @@ weight: 16
 1. Under Notifcations section, Region: **US East - N Virginia**. Topics: **cloudformation-alert**. Click **Configure**.
 ![Chatbot SNS Topics](/images/chatbot-sns-topic.png)
 
-1. Repeat the above steps to setup **cloudwatch-alarm**.
+1. Repeat the above steps to setup **cloudwatch-alert**.

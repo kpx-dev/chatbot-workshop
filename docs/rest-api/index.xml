@@ -11,6 +11,28 @@
     
     
     <item>
+      <title>CloudFormation Notification</title>
+      <link>/rest-api/cloudformation-notification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/cloudformation-notification/</guid>
+      <description> Go to CloudFormation service. Click on Stack chatbot-workshop-rest-api-lambda.
+ Click on Update.
+ Leave Step 1 and 2 as default, click Next.
+ At Step 3, scroll down and click on Notification options. Select SNS: cloudformation-alert. Click Next.  At Step 4 Review, check the acknowledge box and click Update stack.  Now everytime you makes changes to your Stack, you will see alert in your Slack.   </description>
+    </item>
+    
+    <item>
+      <title>Create CloudWatch Alarm</title>
+      <link>/rest-api/create-cw-alarm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/create-cw-alarm/</guid>
+      <description>Go to CloudWatch service. Click on Alarms on the left hand side. Click on Create alarm button.
+ Click Select Metric button. Look for Lambda and click on it. Clik on By Function Name. Select the one starts with prefix chatbot-workshop- and the Metric Name is Errors. Then click Select metric.  Update the Metric panne to set Statistic: Sum, Period: 1 minute  Under the Conditions pane, update the value for the threshold value to 1 and click Next.</description>
+    </item>
+    
+    <item>
       <title>Package &amp; Deploy Lambda using SAM</title>
       <link>/rest-api/configure-aws-chatbot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -24,12 +46,16 @@ sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-wo
     </item>
     
     <item>
-      <title>Walkthrough Together</title>
-      <link>/rest-api/walkhthrough/</link>
+      <title>Trigger CloudWatch Alarm</title>
+      <link>/rest-api/trigger-cw-alarm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/rest-api/walkhthrough/</guid>
-      <description> Let the instructor know when you are here. We&amp;rsquo;ll work together on rest of the workshop. </description>
+      <guid>/rest-api/trigger-cw-alarm/</guid>
+      <description>Trigger OK Alarm  Go back to Cloud9 service.
+ Go into the sample REST API service code:
+cd /home/ec2-user/environment/lambda-example/rest-api  Package your Lambda
+sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]  Deploy your Lambda. After about 30 seconds, you should see a Slack message in your cloudwatch-alert channel saying everything is OK.
+sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM   Trigger Error Alarm  Modify the file rest-api.</description>
     </item>
     
   </channel>

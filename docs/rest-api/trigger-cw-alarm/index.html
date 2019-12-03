@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Configure AWS Chatbot :: Chatbot Workshop</title>
+    <title>Trigger CloudWatch Alarm :: Chatbot Workshop</title>
 
     
     <link href="../../css/nucleus.css?1575411504" rel="stylesheet">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/slack/configure-aws-chatbot/">
+  <body class="" data-url="/rest-api/trigger-cw-alarm/">
     <nav id="sidebar" class="">
 
   
@@ -88,7 +88,7 @@
 
 
 <li data-nav-id="/slack/" title="AWS Chatbot &amp; Slack Integration" class="dd-item
-        parent
+        
         
         
         ">
@@ -153,7 +153,7 @@
 
 
 <li data-nav-id="/slack/configure-aws-chatbot/" title="Configure AWS Chatbot"
-  class="dd-item active">
+  class="dd-item ">
   <a href="../../slack/configure-aws-chatbot/">
     Configure AWS Chatbot
     
@@ -180,7 +180,7 @@
 
 
 <li data-nav-id="/rest-api/" title="CloudFormation &amp; CloudWatch integration" class="dd-item
-        
+        parent
         
         
         ">
@@ -265,7 +265,7 @@
 
 
 <li data-nav-id="/rest-api/trigger-cw-alarm/" title="Trigger CloudWatch Alarm"
-  class="dd-item ">
+  class="dd-item active">
   <a href="../../rest-api/trigger-cw-alarm/">
     Trigger CloudWatch Alarm
     
@@ -321,7 +321,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/slack/configure-aws-chatbot.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/rest-api/trigger-cw-alarm.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -350,7 +350,7 @@
             
           
           
-            <a href='../../'>Chatbot Workshop</a> > <a href='../../slack/'>AWS Chatbot & Slack Integration</a> > Configure AWS Chatbot
+            <a href='../../'>Chatbot Workshop</a> > <a href='../../rest-api/'>CloudFormation & CloudWatch integration</a> > Trigger CloudWatch Alarm
           
          
           
@@ -362,7 +362,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#trigger-ok-alarm">Trigger OK Alarm</a></li>
+<li><a href="#trigger-error-alarm">Trigger Error Alarm</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -374,35 +385,62 @@
         
         <div id="body-inner">
           
-            <h1>Configure AWS Chatbot</h1>
+            <h1>Trigger CloudWatch Alarm</h1>
           
 
         
 
 
+
+
+<h3 id="trigger-ok-alarm">Trigger OK Alarm</h3>
+
 <ol>
-<li><p>Click on Services Drop down, type <strong>Chatbot</strong> and select AWS Chatbot. Select <strong>Slack</strong> as the chat client from the dropdown. Click on <strong>Configure client</strong>.
-<img src="../../images/select-chat-client.png" alt="Select Chat Client" /></p></li>
+<li><p>Go back to <strong>Cloud9</strong> service.</p></li>
 
-<li><p>Create a new Slack workspace or Login with your existing Slack workshop where you have <strong>Admin</strong> access to create channels.</p></li>
+<li><p>Go into the sample REST API service code:</p>
 
-<li><p>Once Logged into Slack, click on <strong>Allow</strong> AWS Chatbot to access your Slack workspace
-<img src="../../images/slack-perm.png" alt="Slack Permission" /></p></li>
+<pre><code>cd /home/ec2-user/environment/lambda-example/rest-api
+</code></pre></li>
 
-<li><p>Go to <strong>Slack</strong>, create 2 public channels: <strong>cloudformation-alert</strong>, <strong>cloudwatch-alert</strong>.
-<img src="../../images/create-slack-channel.png" alt="Create Slack Channel" /></p></li>
+<li><p>Package your Lambda</p>
 
-<li><p>Go back to AWS Console. Click on Refresh icon, you should now see 2 new Slack channels. Channel type: <strong>Public</strong>.
-<img src="../../images/select-slack-channel.png" alt="Select Slack Channel" /></p></li>
+<pre><code>sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]
+</code></pre></li>
 
-<li><p>IAM Role: <strong>Create an IAM role using a template</strong>. Permission Role Name: <strong>AWSChatbot-Slack-Cloudformation-role</strong>. Policy templates: <strong>Notification permissions</strong>
-<img src="../../images/permission-role-name.png" alt="Create Role" /></p></li>
+<li><p>Deploy your Lambda. After about 30 seconds, you should see a Slack message in your <strong>cloudwatch-alert</strong> channel saying everything is OK.</p>
 
-<li><p>Under Notifcations section, Region: <strong>US East - N Virginia</strong>. Topics: <strong>cloudformation-alert</strong>. Click <strong>Configure</strong>.
-<img src="../../images/chatbot-sns-topic.png" alt="Chatbot SNS Topics" /></p></li>
-
-<li><p>Repeat the above steps to setup <strong>cloudwatch-alert</strong>.</p></li>
+<pre><code>sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM
+</code></pre></li>
 </ol>
+
+<p><img src="../../images/slack-ok.png" alt="Slack Ok" /></p>
+
+<h3 id="trigger-error-alarm">Trigger Error Alarm</h3>
+
+<ol>
+<li><p>Modify the file <strong>rest-api.js</strong></p>
+
+<pre><code>vi rest-api.js
+</code></pre></li>
+
+<li><p>Enable a line that would break the service so that CloudWatch Alarm will trigger.</p>
+
+<pre><code>const payload = {};
+</code></pre></li>
+
+<li><p>Package your Lambda</p>
+
+<pre><code>sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]
+</code></pre></li>
+
+<li><p>Deploy your Lambda. After about 30 seconds, you should see a Slack message in your <strong>cloudwatch-alert</strong> channel saying everything is OK.</p>
+
+<pre><code>sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM
+</code></pre></li>
+</ol>
+
+<p><img src="../../images/slack-error.png" alt="Slack Error" /></p>
 
 
 <footer class=" footline" >
@@ -441,75 +479,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -569,6 +538,42 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -585,6 +590,39 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -595,10 +633,10 @@
 
 
         
-            <a class="nav nav-prev" href="../../slack/sns-topics/" title="Create SNS Topics"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../rest-api/configure-aws-chatbot/" title="Package &amp; Deploy Lambda using SAM"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../rest-api/" title="CloudFormation &amp; CloudWatch integration" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../rest-api/cloudformation-notification/" title="CloudFormation Notification" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 

@@ -1,7 +1,7 @@
 ---
 title: "Package & Deploy Lambda using SAM"
 chapter: false
-weight: 21
+weight: 22
 ---
 
 1. Go back to **Cloud9** service.

@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Configure AWS Chatbot :: Chatbot Workshop</title>
+    <title>Create CloudWatch Alarm :: Chatbot Workshop</title>
 
     
     <link href="../../css/nucleus.css?1575411504" rel="stylesheet">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/slack/configure-aws-chatbot/">
+  <body class="" data-url="/rest-api/create-cw-alarm/">
     <nav id="sidebar" class="">
 
   
@@ -88,7 +88,7 @@
 
 
 <li data-nav-id="/slack/" title="AWS Chatbot &amp; Slack Integration" class="dd-item
-        parent
+        
         
         
         ">
@@ -153,7 +153,7 @@
 
 
 <li data-nav-id="/slack/configure-aws-chatbot/" title="Configure AWS Chatbot"
-  class="dd-item active">
+  class="dd-item ">
   <a href="../../slack/configure-aws-chatbot/">
     Configure AWS Chatbot
     
@@ -180,7 +180,7 @@
 
 
 <li data-nav-id="/rest-api/" title="CloudFormation &amp; CloudWatch integration" class="dd-item
-        
+        parent
         
         
         ">
@@ -225,7 +225,7 @@
 
 
 <li data-nav-id="/rest-api/create-cw-alarm/" title="Create CloudWatch Alarm"
-  class="dd-item ">
+  class="dd-item active">
   <a href="../../rest-api/create-cw-alarm/">
     Create CloudWatch Alarm
     
@@ -321,7 +321,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/slack/configure-aws-chatbot.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/rest-api/create-cw-alarm.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -350,7 +350,7 @@
             
           
           
-            <a href='../../'>Chatbot Workshop</a> > <a href='../../slack/'>AWS Chatbot & Slack Integration</a> > Configure AWS Chatbot
+            <a href='../../'>Chatbot Workshop</a> > <a href='../../rest-api/'>CloudFormation & CloudWatch integration</a> > Create CloudWatch Alarm
           
          
           
@@ -374,34 +374,31 @@
         
         <div id="body-inner">
           
-            <h1>Configure AWS Chatbot</h1>
+            <h1>Create CloudWatch Alarm</h1>
           
 
         
 
 
 <ol>
-<li><p>Click on Services Drop down, type <strong>Chatbot</strong> and select AWS Chatbot. Select <strong>Slack</strong> as the chat client from the dropdown. Click on <strong>Configure client</strong>.
-<img src="../../images/select-chat-client.png" alt="Select Chat Client" /></p></li>
+<li><p>Go to <strong>CloudWatch</strong> service. Click on <strong>Alarms</strong> on the left hand side. Click on <strong>Create alarm</strong> button.</p></li>
 
-<li><p>Create a new Slack workspace or Login with your existing Slack workshop where you have <strong>Admin</strong> access to create channels.</p></li>
+<li><p>Click <strong>Select Metric</strong> button. Look for <strong>Lambda</strong> and click on it. Clik on <strong>By Function Name</strong>. Select the one starts with prefix <strong>chatbot-workshop-</strong> and the Metric Name is <strong>Errors</strong>. Then click <strong>Select metric</strong>.
+<img src="../../images/cw-alarm-error.png" alt="CloudWatch Alarm metric" /></p></li>
 
-<li><p>Once Logged into Slack, click on <strong>Allow</strong> AWS Chatbot to access your Slack workspace
-<img src="../../images/slack-perm.png" alt="Slack Permission" /></p></li>
+<li><p>Update the Metric panne to set Statistic: <strong>Sum</strong>, Period: <strong>1 minute</strong>
+<img src="../../images/cw-alarm-metric-setting.png" alt="CloudWatch Alarm metric setting" /></p></li>
 
-<li><p>Go to <strong>Slack</strong>, create 2 public channels: <strong>cloudformation-alert</strong>, <strong>cloudwatch-alert</strong>.
-<img src="../../images/create-slack-channel.png" alt="Create Slack Channel" /></p></li>
+<li><p>Under the Conditions pane, update the value for the threshold value to <strong>1</strong> and click <strong>Next</strong>.
+<img src="../../images/cw-alarm-conditions.png" alt="CloudWatch Alarm metric conditions" /></p></li>
 
-<li><p>Go back to AWS Console. Click on Refresh icon, you should now see 2 new Slack channels. Channel type: <strong>Public</strong>.
-<img src="../../images/select-slack-channel.png" alt="Select Slack Channel" /></p></li>
+<li><p>Under the Notification pane, select the SNS topic: <strong>cloudwatch-alert</strong>. Then click on <strong>Add notification</strong>.
+<img src="../../images/cw-alarm-notification.png" alt="CloudWatch Alarm metric conditions" /></p></li>
 
-<li><p>IAM Role: <strong>Create an IAM role using a template</strong>. Permission Role Name: <strong>AWSChatbot-Slack-Cloudformation-role</strong>. Policy templates: <strong>Notification permissions</strong>
-<img src="../../images/permission-role-name.png" alt="Create Role" /></p></li>
+<li><p>Select <strong>OK</strong> and select the same SNS topic <strong>cloudwatch-alert</strong>. Then click <strong>Next</strong>.
+<img src="../../images/cw-alarm-ok.png" alt="CloudWatch Alarm metric conditions" /></p></li>
 
-<li><p>Under Notifcations section, Region: <strong>US East - N Virginia</strong>. Topics: <strong>cloudformation-alert</strong>. Click <strong>Configure</strong>.
-<img src="../../images/chatbot-sns-topic.png" alt="Chatbot SNS Topics" /></p></li>
-
-<li><p>Repeat the above steps to setup <strong>cloudwatch-alert</strong>.</p></li>
+<li><p>Name the alarm <strong>chatbot-workshop-lambda-error</strong>, click <strong>Next</strong> and <strong>Create alarm</strong>.</p></li>
 </ol>
 
 
@@ -441,75 +438,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -569,6 +497,78 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -595,10 +595,10 @@
 
 
         
-            <a class="nav nav-prev" href="../../slack/sns-topics/" title="Create SNS Topics"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../rest-api/cloudformation-notification/" title="CloudFormation Notification"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../rest-api/" title="CloudFormation &amp; CloudWatch integration" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../rest-api/configure-aws-chatbot/" title="Package &amp; Deploy Lambda using SAM" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 

@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Configure AWS Chatbot :: Chatbot Workshop</title>
+    <title>CloudFormation Notification :: Chatbot Workshop</title>
 
     
     <link href="../../css/nucleus.css?1575411504" rel="stylesheet">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/slack/configure-aws-chatbot/">
+  <body class="" data-url="/rest-api/cloudformation-notification/">
     <nav id="sidebar" class="">
 
   
@@ -88,7 +88,7 @@
 
 
 <li data-nav-id="/slack/" title="AWS Chatbot &amp; Slack Integration" class="dd-item
-        parent
+        
         
         
         ">
@@ -153,7 +153,7 @@
 
 
 <li data-nav-id="/slack/configure-aws-chatbot/" title="Configure AWS Chatbot"
-  class="dd-item active">
+  class="dd-item ">
   <a href="../../slack/configure-aws-chatbot/">
     Configure AWS Chatbot
     
@@ -180,7 +180,7 @@
 
 
 <li data-nav-id="/rest-api/" title="CloudFormation &amp; CloudWatch integration" class="dd-item
-        
+        parent
         
         
         ">
@@ -205,7 +205,7 @@
 
 
 <li data-nav-id="/rest-api/cloudformation-notification/" title="CloudFormation Notification"
-  class="dd-item ">
+  class="dd-item active">
   <a href="../../rest-api/cloudformation-notification/">
     CloudFormation Notification
     
@@ -321,7 +321,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/slack/configure-aws-chatbot.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/rest-api/cloudformation-notification.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -350,7 +350,7 @@
             
           
           
-            <a href='../../'>Chatbot Workshop</a> > <a href='../../slack/'>AWS Chatbot & Slack Integration</a> > Configure AWS Chatbot
+            <a href='../../'>Chatbot Workshop</a> > <a href='../../rest-api/'>CloudFormation & CloudWatch integration</a> > CloudFormation Notification
           
          
           
@@ -374,34 +374,27 @@
         
         <div id="body-inner">
           
-            <h1>Configure AWS Chatbot</h1>
+            <h1>CloudFormation Notification</h1>
           
 
         
 
 
 <ol>
-<li><p>Click on Services Drop down, type <strong>Chatbot</strong> and select AWS Chatbot. Select <strong>Slack</strong> as the chat client from the dropdown. Click on <strong>Configure client</strong>.
-<img src="../../images/select-chat-client.png" alt="Select Chat Client" /></p></li>
+<li><p>Go to <strong>CloudFormation</strong> service. Click on Stack <strong>chatbot-workshop-rest-api-lambda</strong>.</p></li>
 
-<li><p>Create a new Slack workspace or Login with your existing Slack workshop where you have <strong>Admin</strong> access to create channels.</p></li>
+<li><p>Click on <strong>Update</strong>.</p></li>
 
-<li><p>Once Logged into Slack, click on <strong>Allow</strong> AWS Chatbot to access your Slack workspace
-<img src="../../images/slack-perm.png" alt="Slack Permission" /></p></li>
+<li><p>Leave Step 1 and 2 as default, click <strong>Next</strong>.</p></li>
 
-<li><p>Go to <strong>Slack</strong>, create 2 public channels: <strong>cloudformation-alert</strong>, <strong>cloudwatch-alert</strong>.
-<img src="../../images/create-slack-channel.png" alt="Create Slack Channel" /></p></li>
+<li><p>At Step 3, scroll down and click on <strong>Notification options</strong>. Select SNS: <strong>cloudformation-alert</strong>. Click <strong>Next</strong>.
+<img src="../../images/cfn-notification.png" alt="CloudFormation notification" /></p></li>
 
-<li><p>Go back to AWS Console. Click on Refresh icon, you should now see 2 new Slack channels. Channel type: <strong>Public</strong>.
-<img src="../../images/select-slack-channel.png" alt="Select Slack Channel" /></p></li>
+<li><p>At Step 4 Review, check the acknowledge box and click <strong>Update stack</strong>.
+<img src="../../images/cfn-review.png" alt="CloudFormation review" /></p></li>
 
-<li><p>IAM Role: <strong>Create an IAM role using a template</strong>. Permission Role Name: <strong>AWSChatbot-Slack-Cloudformation-role</strong>. Policy templates: <strong>Notification permissions</strong>
-<img src="../../images/permission-role-name.png" alt="Create Role" /></p></li>
-
-<li><p>Under Notifcations section, Region: <strong>US East - N Virginia</strong>. Topics: <strong>cloudformation-alert</strong>. Click <strong>Configure</strong>.
-<img src="../../images/chatbot-sns-topic.png" alt="Chatbot SNS Topics" /></p></li>
-
-<li><p>Repeat the above steps to setup <strong>cloudwatch-alert</strong>.</p></li>
+<li><p>Now everytime you makes changes to your Stack, you will see alert in your Slack.
+<img src="../../images/slack-cfn-alert.png" alt="Slack CloudFormation alert" /></p></li>
 </ol>
 
 
@@ -441,75 +434,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -569,6 +493,75 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -595,10 +588,10 @@
 
 
         
-            <a class="nav nav-prev" href="../../slack/sns-topics/" title="Create SNS Topics"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../rest-api/" title="CloudFormation &amp; CloudWatch integration"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../rest-api/" title="CloudFormation &amp; CloudWatch integration" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../rest-api/create-cw-alarm/" title="Create CloudWatch Alarm" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
