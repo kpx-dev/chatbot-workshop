@@ -27,11 +27,11 @@
   </url>
   
   <url>
-    <loc>/rest-api/cloudformation-notification/</loc>
+    <loc>/rest-api/deploy-service/</loc>
   </url>
   
   <url>
-    <loc>/rest-api/configure-aws-chatbot/</loc>
+    <loc>/rest-api/cloudformation-notification/</loc>
   </url>
   
   <url>

@@ -24,4 +24,4 @@ weight: 16
 1. Under Notifcations section, Region: **US East - N Virginia**. Topics: **cloudformation-alert**. Click **Configure**.
 ![Chatbot SNS Topics](/images/chatbot-sns-topic.png)
 
-1. Repeat the above steps to setup **cloudwatch-alert**.
+1. Repeat from **Step 4** above to setup **cloudwatch-alert**.

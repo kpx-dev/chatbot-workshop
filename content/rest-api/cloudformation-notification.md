@@ -1,7 +1,7 @@
 ---
 title: "CloudFormation Notification"
 chapter: false
-weight: 21
+weight: 22
 ---
 
 1. Go to **CloudFormation** service. Click on Stack **chatbot-workshop-rest-api-lambda**.

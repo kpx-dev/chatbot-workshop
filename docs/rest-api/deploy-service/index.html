@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>Create CloudWatch Alarm :: Chatbot Workshop</title>
+    <title>Package &amp; Deploy Lambda using SAM :: Chatbot Workshop</title>
 
     
     <link href="../../css/nucleus.css?1575419330" rel="stylesheet">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/rest-api/create-cw-alarm/">
+  <body class="" data-url="/rest-api/deploy-service/">
     <nav id="sidebar" class="">
 
   
@@ -205,7 +205,7 @@
 
 
 <li data-nav-id="/rest-api/deploy-service/" title="Package &amp; Deploy Lambda using SAM"
-  class="dd-item ">
+  class="dd-item active">
   <a href="../../rest-api/deploy-service/">
     Package &amp; Deploy Lambda using SAM
     
@@ -245,7 +245,7 @@
 
 
 <li data-nav-id="/rest-api/create-cw-alarm/" title="Create CloudWatch Alarm"
-  class="dd-item active">
+  class="dd-item ">
   <a href="../../rest-api/create-cw-alarm/">
     Create CloudWatch Alarm
     
@@ -321,7 +321,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/rest-api/create-cw-alarm.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kienpham2000/chatbot-workshop/edit/master/content/rest-api/deploy-service.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -350,7 +350,7 @@
             
           
           
-            <a href='../../'>Chatbot Workshop</a> > <a href='../../rest-api/'>CloudFormation & CloudWatch integration</a> > Create CloudWatch Alarm
+            <a href='../../'>Chatbot Workshop</a> > <a href='../../rest-api/'>CloudFormation & CloudWatch integration</a> > Package & Deploy Lambda using SAM
           
          
           
@@ -374,31 +374,51 @@
         
         <div id="body-inner">
           
-            <h1>Create CloudWatch Alarm</h1>
+            <h1>Package &amp; Deploy Lambda using SAM</h1>
           
 
         
 
 
 <ol>
-<li><p>Go to <strong>CloudWatch</strong> service. Click on <strong>Alarms</strong> on the left hand side. Click on <strong>Create alarm</strong> button.</p></li>
+<li><p>Go back to <strong>Cloud9</strong> service.</p></li>
 
-<li><p>Click <strong>Select Metric</strong> button. Look for <strong>Lambda</strong> and click on it. Clik on <strong>By Function Name</strong>. Select the one starts with prefix <strong>chatbot-workshop-</strong> and the Metric Name is <strong>Errors</strong>. Then click <strong>Select metric</strong>.
-<img src="../../images/cw-alarm-error.png" alt="CloudWatch Alarm metric" /></p></li>
+<li><p>Create the S3 repo to store SAM artifact. Since the S3 repo name must be <strong><em>globally unique</em></strong>, please postfix with your username</p>
 
-<li><p>Update the Metric panne to set Statistic: <strong>Sum</strong>, Period: <strong>1 minute</strong>
-<img src="../../images/cw-alarm-metric-setting.png" alt="CloudWatch Alarm metric setting" /></p></li>
+<pre><code>aws s3api create-bucket --bucket chatbot-workshop-[your-username]
+</code></pre></li>
 
-<li><p>Under the Conditions pane, update the value for the threshold value to <strong>1</strong> and click <strong>Next</strong>.
-<img src="../../images/cw-alarm-conditions.png" alt="CloudWatch Alarm metric conditions" /></p></li>
+<li><p>Make sure you are in the <strong>rest-api</strong> directory</p>
 
-<li><p>Under the Notification pane, select the SNS topic: <strong>cloudwatch-alert</strong>. Then click on <strong>Add notification</strong>.
-<img src="../../images/cw-alarm-notification.png" alt="CloudWatch Alarm metric conditions" /></p></li>
+<pre><code>cd ~/environment/lambda-example/rest-api/
+</code></pre></li>
 
-<li><p>Select <strong>OK</strong> and select the same SNS topic <strong>cloudwatch-alert</strong>. Then click <strong>Next</strong>.
-<img src="../../images/cw-alarm-ok.png" alt="CloudWatch Alarm metric conditions" /></p></li>
+<li><p>Package the template. Don&rsquo;t forget to replace <code>chatbot-workshop-[your-username]</code> with your actual S3 bucket name.</p>
 
-<li><p>Name the alarm <strong>chatbot-workshop-lambda-error</strong>, click <strong>Next</strong> and <strong>Create alarm</strong>.</p></li>
+<pre><code>sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]
+</code></pre></li>
+
+<li><p>Deploy Lambda using SAM. This will take 1-2 minutes as SAM is creating CloudFormation stack. You will also see that there&rsquo;s a new S3 bucket created by SAM.</p>
+
+<pre><code>sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM
+</code></pre></li>
+
+<li><p>Once Deployment is done, there will be a CloudFront url for your endpoint.
+<img src="../../images/sam-deploy.png" alt="Sam Deploy" /></p></li>
+
+<li><p>Test that endpoint url using curl or http and it should be working</p>
+
+<pre><code class="language-shell">http https://xxx.execute-api.us-east-1.amazonaws.com/Prod/
+</code></pre></li>
+
+<li><p>Now to go <strong>CloudFormation</strong> service from the main Service dropdown.</p></li>
+
+<li><p>Click on the Stack Name: <strong>chatbot-workshop-rest-api-lambda</strong>. Click <strong>Update</strong>.</p></li>
+
+<li><p>Click <strong>Next</strong> 2 times to get to Step 3. Expand the: <strong>Notification options</strong>. Select <strong>cloudformation-alert</strong> SNS. Click <strong>Next</strong>.
+<img src="../../images/cfn-sns.png" alt="CloudFormation Notify SNS" /></p></li>
+
+<li><p>Check the acknowledge box and click <strong>Update stack</strong>. Once done, you should receive notification to your Slack channel from now.</p></li>
 </ol>
 
 
@@ -519,41 +539,6 @@
             
                 
                     
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -585,6 +570,38 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -595,10 +612,10 @@
 
 
         
-            <a class="nav nav-prev" href="../../rest-api/cloudformation-notification/" title="CloudFormation Notification"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../rest-api/" title="CloudFormation &amp; CloudWatch integration"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../rest-api/trigger-cw-alarm/" title="Trigger CloudWatch Alarm" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../rest-api/cloudformation-notification/" title="CloudFormation Notification" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
