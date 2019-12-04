@@ -36,3 +36,8 @@ user:~/environment/lambda-example (master) $
 ```shell
 ./install-packages.sh
 ```
+
+1. Reload your bash shell
+```
+source ~/.bash_profile
+```
