@@ -47,4 +47,6 @@ sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-wo
 sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM
 ```
 
+1. Now try to curl your endpoint a few times. It should give you 500x error.
+
 ![Slack Error](/images/slack-error.png)
