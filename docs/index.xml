@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chatbot Workshop</title>
+    <link>/</link>
+    <description>Recent content on Chatbot Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Setup Dev Env with Cloud9</title>
+      <link>/slack/setup-dev-env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/slack/setup-dev-env/</guid>
+      <description>Login to your AWS Account, make sure you are in the North Virginia (us-east-1) region
+ Click on Services Drop down, type Cloud9. Click on Create environment.
+ Type: chatbot-workshop for Name. Click on Next step.
+ Leave all settings default. Click on Next step. Then click Create environment.  It will take about 3-5 minutes to create your Cloud9 environment.
+ We&amp;rsquo;ll deploy a simple REST API service. From your Cloud9, open a new Terminal (+ icon next to Welcome tab) and run:</description>
+    </item>
+    
+    <item>
+      <title>Create SNS Topics</title>
+      <link>/slack/sns-topics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/slack/sns-topics/</guid>
+      <description> Make sure you are still in the us-east-1 (North Virginia) region.
+  Click on Services Drop down, type SNS and select Simple Notification Service.
+ Click on Topics on left-side menu. Click Create Topic.
+ Name: cloudformation-alert
+ Under Access Policy, select Everyone for both sections. Click Create topic.  Repeat the above steps to create another topic for cloudwatch-alert.
+  </description>
+    </item>
+    
+    <item>
+      <title>Configure AWS Chatbot</title>
+      <link>/slack/configure-aws-chatbot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/slack/configure-aws-chatbot/</guid>
+      <description>Click on Services Drop down, type Chatbot and select AWS Chatbot. Select Slack as the chat client from the dropdown. Click on Configure client.  Create a new Slack workspace or Login with your existing Slack workshop where you have Admin access to create channels.
+ Once Logged into Slack, click on Allow AWS Chatbot to access your Slack workspace  Go to Slack, create 2 public channels: cloudformation-alert, cloudwatch-alert.</description>
+    </item>
+    
+    <item>
+      <title>Package &amp; Deploy Lambda using SAM</title>
+      <link>/rest-api/deploy-service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/deploy-service/</guid>
+      <description>Go back to Cloud9 service.
+ Create the S3 repo to store SAM artifact. Since the S3 repo name must be globally unique, please postfix with your username
+aws s3api create-bucket --bucket chatbot-workshop-[your-username]  Make sure you are in the rest-api directory
+cd ~/environment/lambda-example/rest-api/  Package the template. Don&amp;rsquo;t forget to replace chatbot-workshop-[your-username] with your actual S3 bucket name.
+sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]  Deploy Lambda using SAM.</description>
+    </item>
+    
+    <item>
+      <title>CloudFormation Notification</title>
+      <link>/rest-api/cloudformation-notification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/cloudformation-notification/</guid>
+      <description> Go to CloudFormation service. Click on Stack chatbot-workshop-rest-api-lambda.
+ Click on Update.
+ Leave Step 1 and 2 as default, click Next.
+ At Step 3, scroll down and click on Notification options. Select SNS: cloudformation-alert. Click Next.  At Step 4 Review, check the acknowledge box and click Update stack.  Now everytime you makes changes to your Stack, you will see alert in your Slack.   </description>
+    </item>
+    
+    <item>
+      <title>Create CloudWatch Alarm</title>
+      <link>/rest-api/create-cw-alarm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/create-cw-alarm/</guid>
+      <description>Go to CloudWatch service. Click on Alarms on the left hand side. Click on Create alarm button.
+ Click Select Metric button. Look for Lambda and click on it. Clik on By Function Name. Select the one starts with prefix chatbot-workshop- and the Metric Name is Errors. Then click Select metric.  Update the Metric panne to set Statistic: Sum, Period: 1 minute  Under the Conditions pane, update the value for the threshold value to 1 and click Next.</description>
+    </item>
+    
+    <item>
+      <title>Trigger CloudWatch Alarm</title>
+      <link>/rest-api/trigger-cw-alarm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/rest-api/trigger-cw-alarm/</guid>
+      <description>Trigger OK Alarm  Go back to Cloud9 service.
+ Go into the sample REST API service code:
+cd /home/ec2-user/environment/lambda-example/rest-api  Package your Lambda
+sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-workshop-[your-username]  Deploy your Lambda. After about 30 seconds, you should see a Slack message in your cloudwatch-alert channel saying everything is OK.
+sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM   Trigger Error Alarm  Modify the file rest-api.</description>
+    </item>
+    
+  </channel>
+</rss>
