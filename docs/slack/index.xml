@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS Chatbot &amp; Slack Integration on Chatbot Workshop</title>
     <link>/slack/</link>
     <description>Recent content in AWS Chatbot &amp; Slack Integration on Chatbot Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/slack/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/slack/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup Dev Env with Cloud9</title>
       <link>/slack/setup-dev-env/</link>
@@ -17,10 +13,10 @@
       
       <guid>/slack/setup-dev-env/</guid>
       <description>Login to your AWS Account, make sure you are in the North Virginia (us-east-1) region
- Click on Services Drop down, type Cloud9. Click on Create environment.
- Type: chatbot-workshop for Name. Click on Next step.
- Leave all settings default. Click on Next step. Then click Create environment.  It will take about 3-5 minutes to create your Cloud9 environment.
- We&amp;rsquo;ll deploy a simple REST API service. From your Cloud9, open a new Terminal (+ icon next to Welcome tab) and run:</description>
+  Click on Services Drop down, type Cloud9. Click on Create environment.
+  Type: chatbot-workshop for Name. Click on Next step.
+  Leave all settings default. Click on Next step. Then click Create environment.   It will take about 3-5 minutes to create your Cloud9 environment.
+  We&amp;rsquo;ll deploy a simple REST API service.</description>
     </item>
     
     <item>
@@ -30,10 +26,10 @@
       
       <guid>/slack/sns-topics/</guid>
       <description> Make sure you are still in the us-east-1 (North Virginia) region.
-  Click on Services Drop down, type SNS and select Simple Notification Service.
- Click on Topics on left-side menu. Click Create Topic.
- Name: cloudformation-alert
- Under Access Policy, select Everyone for both sections. Click Create topic.  Repeat the above steps to create another topic for cloudwatch-alert.
+   Click on Services Drop down, type SNS and select Simple Notification Service.
+  Click on Topics on left-side menu. Click Create Topic.
+  Name: cloudformation-alert
+  Under Access Policy, select Everyone for both sections. Click Create topic.   Repeat the above steps to create another topic for cloudwatch-alert.
   </description>
     </item>
     
@@ -43,8 +39,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/slack/configure-aws-chatbot/</guid>
-      <description>Click on Services Drop down, type Chatbot and select AWS Chatbot. Select Slack as the chat client from the dropdown. Click on Configure client.  Create a new Slack workspace or Login with your existing Slack workshop where you have Admin access to create channels.
- Once Logged into Slack, click on Allow AWS Chatbot to access your Slack workspace  Go to Slack, create 2 public channels: cloudformation-alert, cloudwatch-alert.</description>
+      <description>Click on Services Drop down, type Chatbot and select AWS Chatbot. Select Slack as the chat client from the dropdown. Click on Configure client.   Create a new Slack workspace or Login with your existing Slack workshop where you have Admin access to create channels.
+  Once Logged into Slack, click on Allow AWS Chatbot to access your Slack workspace   Go to Slack, create 2 public channels: cloudformation-alert, cloudwatch-alert.</description>
     </item>
     
   </channel>

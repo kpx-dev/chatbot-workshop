@@ -8,7 +8,7 @@
     <meta property="og:url" content="https://chatbotworkshop.com" />
     <meta property="og:image" content="https://chatbotworkshop.com/images/welcome.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.52" />
+    <meta name="generator" content="Hugo 0.75.1" />
     <meta name="description" content="Chatbot Workshop">
 <meta name="author" content="Kien Pham">
 
@@ -18,21 +18,21 @@
     <title>Setup Dev Env with Cloud9 :: Chatbot Workshop</title>
 
     
-    <link href="../../css/nucleus.css?1575578668" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1575578668" rel="stylesheet">
-    <link href="../../css/hybrid.css?1575578668" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1575578668" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1575578668" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1575578668" rel="stylesheet">
-    <link href="../../css/theme.css?1575578668" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1575578668" rel="stylesheet">
-    <link href="../../css/jquery-ui.min.css?1575578668" rel="stylesheet">
+    <link href="../../css/nucleus.css?1614704878" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1614704878" rel="stylesheet">
+    <link href="../../css/hybrid.css?1614704878" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1614704878" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1614704878" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1614704878" rel="stylesheet">
+    <link href="../../css/theme.css?1614704878" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1614704878" rel="stylesheet">
+    <link href="../../css/jquery-ui.min.css?1614704878" rel="stylesheet">
     
-      <link href="../../css/theme-mine.css?1575578668" rel="stylesheet">
+      <link href="../../css/theme-mine.css?1614704878" rel="stylesheet">
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1575578668"></script>
-    <script src="../../js/jquery-ui-1.12.1.min.js?1575578668"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1614704878"></script>
+    <script src="../../js/jquery-ui-1.12.1.min.js?1614704878"></script>
 
 
     <style type="text/css">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/slack/setup-dev-env/">
+  <body class="" data-url="../../slack/setup-dev-env/">
     <nav id="sidebar" class="">
 
   
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1575578668"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1575578668"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1614704878"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1614704878"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1575578668"></script>
+<script type="text/javascript" src="../../js/search.js?1614704878"></script>
 
     
   </div>
@@ -362,7 +362,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -381,45 +381,47 @@
 
 
 <ol>
-<li><p>Login to your AWS Account, make sure you are in the <strong>North Virginia (us-east-1)</strong> region</p></li>
-
-<li><p>Click on Services Drop down, type <strong>Cloud9</strong>. Click on <strong>Create environment</strong>.</p></li>
-
-<li><p>Type: <strong>chatbot-workshop</strong> for Name. Click on <strong>Next step</strong>.</p></li>
-
-<li><p>Leave all settings default. Click on <strong>Next step</strong>. Then click <strong>Create environment</strong>.
-<img src="../../images/cloud9.png" alt="Cloud9" /></p></li>
-
-<li><p>It will take about 3-5 minutes to create your Cloud9 environment.</p></li>
-
-<li><p>We&rsquo;ll deploy a simple REST API service. From your Cloud9, open a new Terminal (+ icon next to Welcome tab) and run:</p>
-
-<pre><code class="language-shell">git clone https://github.com/kienpham2000/lambda-example.git &amp;&amp; cd lambda-example
-</code></pre></li>
-
-<li><p>Output will look like this</p>
-
-<pre><code class="language-shell">user:~/environment $ git clone https://github.com/kienpham2000/lambda-example.git &amp;&amp; cd lambda-example
-Cloning into 'lambda-example'...
-remote: Enumerating objects: 52, done.
-remote: Counting objects: 100% (52/52), done.
-remote: Compressing objects: 100% (37/37), done.
-remote: Total 52 (delta 23), reused 39 (delta 13), pack-reused 0
-Unpacking objects: 100% (52/52), done.
-user:~/environment/lambda-example (master) $
-</code></pre></li>
-
-<li><p>Install packages (SAM, httpie, etc.). Press <strong>Enter</strong> to continue. This will take about 2-3 minutes.</p>
-
-<pre><code class="language-shell">./install-packages.sh
-</code></pre></li>
-
-<li><p>Reload your bash shell</p>
-
-<pre><code>source ~/.bash_profile
-</code></pre></li>
+<li>
+<p>Login to your AWS Account, make sure you are in the <strong>North Virginia (us-east-1)</strong> region</p>
+</li>
+<li>
+<p>Click on Services Drop down, type <strong>Cloud9</strong>. Click on <strong>Create environment</strong>.</p>
+</li>
+<li>
+<p>Type: <strong>chatbot-workshop</strong> for Name. Click on <strong>Next step</strong>.</p>
+</li>
+<li>
+<p>Leave all settings default. Click on <strong>Next step</strong>. Then click <strong>Create environment</strong>.
+<img src="../../images/cloud9.png" alt="Cloud9"></p>
+</li>
+<li>
+<p>It will take about 3-5 minutes to create your Cloud9 environment.</p>
+</li>
+<li>
+<p>We&rsquo;ll deploy a simple REST API service. From your Cloud9, open a new Terminal (+ icon next to Welcome tab) and run:</p>
+</li>
 </ol>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/kpx-dev/lambda-example.git <span style="color:#f92672">&amp;&amp;</span> cd lambda-example
+</code></pre></div><ol>
+<li>Output will look like this</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">user:~/environment $ git clone https://github.com/kpx-dev/lambda-example.git <span style="color:#f92672">&amp;&amp;</span> cd lambda-example
+Cloning into <span style="color:#e6db74">&#39;lambda-example&#39;</span>...
+remote: Enumerating objects: 52, <span style="color:#66d9ef">done</span>.
+remote: Counting objects: 100% <span style="color:#f92672">(</span>52/52<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+remote: Compressing objects: 100% <span style="color:#f92672">(</span>37/37<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+remote: Total <span style="color:#ae81ff">52</span> <span style="color:#f92672">(</span>delta 23<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">39</span> <span style="color:#f92672">(</span>delta 13<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">0</span>
+Unpacking objects: 100% <span style="color:#f92672">(</span>52/52<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+user:~/environment/lambda-example <span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> $
+</code></pre></div><ol>
+<li>Install packages (SAM, httpie, etc.). Press <strong>Enter</strong> to continue. This will take about 2-3 minutes.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./install-packages.sh
+</code></pre></div><ol>
+<li>Reload your bash shell</li>
+</ol>
+<pre><code>source ~/.bash_profile
+</code></pre>
 
 <footer class=" footline" >
 	
@@ -620,19 +622,19 @@ user:~/environment/lambda-example (master) $
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1575578668"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1575578668"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1575578668"></script>
-    <script src="../../js/jquery.sticky.js?1575578668"></script>
-    <script src="../../js/featherlight.min.js?1575578668"></script>
-    <script src="../../js/highlight.pack.js?1575578668"></script>
+    <script src="../../js/clipboard.min.js?1614704879"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1614704879"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1614704879"></script>
+    <script src="../../js/jquery.sticky.js?1614704879"></script>
+    <script src="../../js/featherlight.min.js?1614704879"></script>
+    <script src="../../js/highlight.pack.js?1614704879"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1575578668"></script>
-    <script src="../../js/learn.js?1575578668"></script>
-    <script src="../../js/hugo-learn.js?1575578668"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1614704879"></script>
+    <script src="../../js/learn.js?1614704879"></script>
+    <script src="../../js/hugo-learn.js?1614704879"></script>
 
-    <link href="../../mermaid/mermaid.css?1575578668" type="text/css" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.min.js?1575578668"></script>
+    <link href="../../mermaid/mermaid.css?1614704879" type="text/css" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.min.js?1614704879"></script>
     <script>
 	var config = {
         startOnLoad:true,
