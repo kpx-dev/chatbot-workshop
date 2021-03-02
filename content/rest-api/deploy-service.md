@@ -11,9 +11,9 @@ weight: 21
 aws s3api create-bucket --bucket chatbot-workshop-[your-username]
 ```
 
-1. Make sure you are in the **rest-api** directory
+1. Make sure you are in the **simple-api** directory
 ```
-cd ~/environment/lambda-example/rest-api/
+cd ~/environment/lambda-example/simple-api/
 ```
 
 1. Package the template. Don't forget to replace `chatbot-workshop-[your-username]` with your actual S3 bucket name.
@@ -23,7 +23,7 @@ sam package --output-template-file template_packaged.yaml --s3-bucket chatbot-wo
 
 1. Deploy Lambda using SAM. This will take 1-2 minutes as SAM is creating CloudFormation stack. You will also see that there's a new S3 bucket created by SAM.
 ```
-sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-rest-api-lambda --capabilities CAPABILITY_IAM
+sam deploy --template-file template_packaged.yaml --stack-name chatbot-workshop-simple-api-lambda --capabilities CAPABILITY_IAM
 ```
 
 1. Once Deployment is done, there will be a CloudFront url for your endpoint.
@@ -36,7 +36,7 @@ http https://xxx.execute-api.us-east-1.amazonaws.com/Prod/
 
 1. Now to go **CloudFormation** service from the main Service dropdown.
 
-1. Click on the Stack Name: **chatbot-workshop-rest-api-lambda**. Click **Update**.
+1. Click on the Stack Name: **chatbot-workshop-simple-api-lambda**. Click **Update**.
 
 1. Click **Next** 2 times to get to Step 3. Expand the: **Notification options**. Select **cloudformation-alert** SNS. Click **Next**.
 ![CloudFormation Notify SNS](/images/cfn-sns.png)

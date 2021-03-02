@@ -17,12 +17,12 @@ weight: 14
 
 1. We'll deploy a simple REST API service. From your Cloud9, open a new Terminal (+ icon next to Welcome tab) and run:
 ```shell
-git clone https://github.com/kienpham2000/lambda-example.git && cd lambda-example
+git clone https://github.com/kpx-dev/lambda-example.git && cd lambda-example
 ```
 
 1. Output will look like this
 ```shell
-user:~/environment $ git clone https://github.com/kienpham2000/lambda-example.git && cd lambda-example
+user:~/environment $ git clone https://github.com/kpx-dev/lambda-example.git && cd lambda-example
 Cloning into 'lambda-example'...
 remote: Enumerating objects: 52, done.
 remote: Counting objects: 100% (52/52), done.
